@@ -27,6 +27,7 @@ firebase.json
 .env.production.local
 
 nowbackup
+now.json
 firebasebackup
 
 package-lock.json
