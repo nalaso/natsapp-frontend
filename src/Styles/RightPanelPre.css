@@ -1,0 +1,85 @@
+.rightPanelPre{
+	background: url("dis.jpg");
+}
+
+.midSide{
+	height: 100%;
+}
+
+.watermark{
+	margin: auto;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+.wtrmark{
+	margin-top: 20vh;
+	border: 3px solid whitesmoke;
+	border-radius: 50%;
+	opacity: 0.2;
+	animation: App-logo-spin infinite 30s linear;
+}
+
+.wtrmark:hover{
+	opacity: 1;
+	cursor: crosshair;
+}
+
+@keyframes App-logo-spin {
+	0% {
+		transform: rotate(0deg);
+		/* opacity: 1; */
+	}
+	/* 10%{
+		opacity: 0.8;
+	}
+	20%{
+		opacity: 0.6;
+	}
+	30%{
+		opacity: 0.4;
+	}
+	40%{
+		opacity: 0.2;
+	}
+	50%{
+		opacity: 0.05;
+	}
+	60%{
+		opacity: 0.2;
+	}
+	70%{
+		opacity: 0.4;
+	}
+	80%{
+		opacity: 0.6;
+	}
+	90%{
+		opacity: 0.8;
+	} */
+	100% {
+		/* opacity: 1; */
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes App-logo-back {
+	0% {
+		transform: rotate(0deg);
+		opacity: 1;
+	}
+	250%{
+		opacity: 0.9;
+	}
+	50%{
+		opacity: 0.8;
+	}
+	75%{
+		opacity: 0.7;
+	}
+	100% {
+		transform: rotate(360deg);
+		opacity: 0.65;
+	}
+}

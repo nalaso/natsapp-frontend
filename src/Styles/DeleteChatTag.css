@@ -1,0 +1,31 @@
+.chatdeltag{
+	position: relative;
+    float: left;
+    width: calc(100% - 9px);
+    height: 50px;
+    background: #555;
+    color: ivory;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+	border: 2px red solid;
+	display: flex;
+	margin: 3px;
+}
+
+.pbt{
+	width: 20%;
+}
+
+.pte{
+	padding-left: 15px;
+	width: 80%;
+	margin-top: -3px;
+	text-align: center;
+    margin: auto;
+}
+
+.pbt button{
+	height: 100%;
+	float: right;
+}

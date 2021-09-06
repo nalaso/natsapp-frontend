@@ -1,0 +1,29 @@
+.moreMenu {
+	position: absolute;
+	top: 70px;
+	right: 0px;
+	z-index: 10;
+	padding: 10px;
+	color: #666;
+	border-radius: 8px;
+	background: rgb(109, 109, 109);
+}
+
+.moreMenu .option {
+	width: 150px;
+	height: 50px;
+	display: block;
+	background: #fff;
+	font-size: 14px;
+	text-align: left;
+	border-radius: 4px;
+	padding-left: 10px;
+}
+
+.moreMenu .option:hover {
+	background: #DDD;
+}
+
+.moreMenu .option:nth-last-child(1) {
+	margin-top: 3px;
+}

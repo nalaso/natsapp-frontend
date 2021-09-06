@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "name":"natsapp",
+    "builds": [
+        { "src": "/build/**", "use": "@now/static"}
+    ],
+    "routes": [
+        { "src": "/", "dest": "/build/index.html" },
+        { "src": "/(.+js|.+json|.+css|.+png|.+jpeg|.+jpg|.+ico|robots.txt)", "dest": "/build/$1" },
+        { "src": "/(.*)", "dest": "/build/index.html" }
+    ]
+}
