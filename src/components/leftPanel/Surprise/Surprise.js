@@ -11,7 +11,7 @@ const Surprise = ({setSurpriseopen}) => {
     return (
         <div className="surprisetag" data-username="news" data-dispname="news updates surprise" >
             <div style={{height:"50px"}}>
-                <CancelOutlinedIcon onClick={()=>setSurpriseopen(false)} style={{cursor: "pointer",float:"right",color:"whitesmoke",marginRight:"10px"}}/>
+                <CancelOutlinedIcon onClick={()=>setSurpriseopen()} style={{cursor: "pointer",float:"right",color:"whitesmoke",marginRight:"10px"}}/>
             </div>
             <div className="linkbuttons">
             <h1 style={{}}>News and Updates</h1>

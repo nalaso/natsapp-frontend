@@ -41,7 +41,7 @@ const GithubLogin = () => {
             },
         })
         fetchuserprofile(user);
-        updatestatus(user);
+        updatestatus(user.uid);
         user.updateProfile({
             displayName: result.additionalUserInfo.username,
         })

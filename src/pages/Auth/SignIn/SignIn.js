@@ -1,6 +1,7 @@
 import React, {useState,useContext} from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../components/AuthProvider/AuthProvider";
+import { mainAxios } from "../../../Config/axios/axios";
 import { FireContext } from "./../../../Config/Firebase/Firebase";
 import './SignIn.css';
 
@@ -21,19 +22,26 @@ const SignIn = () => {
         setError(error.message);
           console.error("Error signing in with password and email", error);
         });
-      };
+    };
+
+    const generateCustomerToken = (event) => {
+        event.preventDefault();
+        console.log("generate");
+        let td = new Date().getTime()
+        let uri = "https://faogamma.web.app/Accounts/Redirect?origin=natsapp&type=prod&t="+td
+        window.open(uri,"_self")
+    };
       
-      const onChangeHandler = (event) => {
-          const {name, value} = event.currentTarget;
-        
-          if(name === 'userEmail') {
-              setEmail(value);
-          }
-          else if(name === 'userPassword'){
-            setPassword(value);
-          }
-      };
-   
+    const onChangeHandler = (event) => {
+        const {name, value} = event.currentTarget;
+      
+        if(name === 'userEmail') {
+            setEmail(value);
+        }
+        else if(name === 'userPassword'){
+          setPassword(value);
+        }
+    };
 
   return (
     <div className={darkMode ? "dark-mode-ter container" : "light-mode-ter container"}>
@@ -72,8 +80,16 @@ const SignIn = () => {
             }}
           >Sign in
         </button>
+        <h5 className="textacc" style={{paddingTop:"10px"}}>Or</h5>
+        <button
+            className="submit-btn"
+            onClick={event => {
+              generateCustomerToken(event);
+            }}
+          >Sign in using Nalasky id
+        </button>
 
-        <p className={darkMode ? "dark-mode-ter textacc" : "light-mode-ter textacc"}>
+        <p className={darkMode ? "dark-mode-ter textacc" : "light-mode-ter textacc"} style={{paddingTop:"5px"}}>
           <br/>Don't have an account?<br/>{" "}
           <Link to="/SignUp" className="textsignin">
             Sign up here

@@ -13,16 +13,14 @@ const LeftPanel = () => {
 	const [surpriseopen, setSurpriseopen] = useState(false)
 
 	useEffect(() => {
-		if(!localStorage.getItem("issurpriseclosed")){
+		if(localStorage.getItem("issurpriseclosed")=="yes"){
 			setSurpriseopen(true)
 		}
 	}, [])
 
-	const setsurprse =() =>{
+	const setsurprise =() =>{
 		setSurpriseopen(false)
-		let timenow = new Date.now()
-		localStorage.setItem("issurpriseclosed",true)
-		localStorage.setItem("surpriseclosedtimer",timenow)
+		localStorage.setItem("issurpriseclosed","yes")
 	}
 	
     return (
@@ -31,7 +29,7 @@ const LeftPanel = () => {
 			<Header surpriseopen={surpriseopen} />
 			<div className="chats" id="chats">
 				{
-					surpriseopen && <Surprise setSurpriseopen={setsurprse} />
+					surpriseopen && <Surprise setSurpriseopen={setsurprise} />
 				}
 				<RequestDetails />
 				{isGroup?(<>

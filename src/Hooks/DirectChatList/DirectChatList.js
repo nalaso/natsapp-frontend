@@ -61,7 +61,6 @@ const DirectChatList = props=> {
 
 	useEffect(() => {
 		db.ref("bots/natsappweb").on("child_added",(snapshot)=>{
-			console.log(snapshot.val());
 			setBotlist(oldbot=>(
 				[...oldbot,
 					{

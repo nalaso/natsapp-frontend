@@ -1,5 +1,5 @@
 import React, { useContext ,useEffect ,useState } from 'react'
-import axios from './../../Config/axios/axios'
+import axios, { mainAxios } from './../../Config/axios/axios'
 import { useHistory } from 'react-router-dom'
 import { UserContext } from '../../components/AuthProvider/AuthProvider'
 import { FireContext } from '../../Config/Firebase/Firebase'
@@ -110,7 +110,7 @@ const GroupDetails = (props) => {
             }).then(()=>{
                 alert("Changes will reflect within few minutes")
                 if(cugrname!==grname){
-                    axios.post("/changegrname?grid="+chatdet.grid+"&grname="+grname).then((response)=>{
+                    mainAxios.post("/changegrname?grid="+chatdet.grid+"&grname="+grname).then((response)=>{
                         if(response){
                             alert("Details "+response.data+"!");
                             alert("Please reload to see the changes");

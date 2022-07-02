@@ -4,7 +4,7 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions'
 import SendIcon from '@material-ui/icons/Send'
 import { FireContext } from '../../../Config/Firebase/Firebase'
 
-const ReplyBar = ({props,cuid,cuname,changebotmsg}) => {
+const ReplyBar = ({props,cuid,cuname,changebotmsg,changefile}) => {
 	const {db,fire} = useContext(FireContext)
 	const [msg, setmsg] = useState("");
 	const [chatid, setchatid] = useState("");
@@ -75,12 +75,18 @@ const ReplyBar = ({props,cuid,cuname,changebotmsg}) => {
 			setmsg("");
 		}
 	}
-
+	
+	const uploadnewimg = (e) => {
+		changefile(e.target.files);
+	}
 	
     return (
         <div className="replyBar">
+			<input type="file" name="" id="file" className="changePic" accept=".png, .jpg, .jpeg" style={{display: "none"}} onChange={uploadnewimg}/>	
 			<button className="attach">
+				<label htmlFor="file" id="fileselector" style={{cursor: "pointer"}}>
 				<AttachFileIcon />
+				</label>
 			</button>
 			
 			<input value={msg} onKeyDown={enterlistener} onChange={handlemsg} type="text" className="replyMessage" id="sendmsg" placeholder="Type your message..."/>

@@ -106,9 +106,9 @@ const AuthProvider = props=>{
     });
   }
 
-  const updatestatus = (user) => {
-    db.ref('/users/' + user.uid + "/status").onDisconnect().update(isOfflineForDatabase).then(()=>{
-      db.ref('/users/' + user.uid + "/status").update(isOnlineForDatabase);
+  const updatestatus = (uid) => {
+    db.ref('/users/' + uid + "/status").onDisconnect().update(isOfflineForDatabase).then(()=>{
+      db.ref('/users/' + uid + "/status").update(isOnlineForDatabase);
     });
   }
   
@@ -119,6 +119,7 @@ const AuthProvider = props=>{
         setAdminuid(snapshot.val().uid)
       })
       auth.onAuthStateChanged((user) => {
+        console.log(user);
         setPending(false)
         setCurrentUser(user)
         if(user){
@@ -127,7 +128,7 @@ const AuthProvider = props=>{
               console.log("database disconnected");
                 return;
             }
-            updatestatus(user);
+            updatestatus(user.uid);
             fetchuserprofile(user);
             setAuthlink("");
           });

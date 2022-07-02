@@ -1480,6 +1480,11 @@ div[class~="onTop"] > .fixed {
 	right: 12px;
 }
 
+#imgimg{
+	width: 250px;
+    height: 250px;
+}
+
 .conbot{
 	height: calc(100% - 100px);
 }
@@ -1608,7 +1613,6 @@ div[class~="onTop"] > .fixed {
 }
 
 .providerscontainer{
-	height: 20%;
 	text-align: center;
 	color: whitesmoke;
 }

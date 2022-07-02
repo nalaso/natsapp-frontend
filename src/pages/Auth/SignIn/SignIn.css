@@ -63,7 +63,7 @@
 .form-structor .signup .textacc {
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 25px;
     font-size: 1em;
     text-align: center;
 }

@@ -4,7 +4,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import "firebase/database";
 import "firebase/storage";
-import axios from "../axios/axios";
+import {mainAxios} from "../axios/axios";
 
 export const FireContext = createContext();
 
@@ -22,7 +22,7 @@ const ApiProvider = props =>{
   useEffect(() => {
     const fetchfirebase = async() =>{
         const tc = ta()*tb();
-        const response = await axios.post("/fh/ai?sc="+ta()+"&lb="+tb()+"&lc="+tc);
+        const response = await mainAxios.post("/fh/ai?sc="+ta()+"&lb="+tb()+"&lc="+tc);
         if(response.data){
           firebase.initializeApp(response.data);
           setAuth(firebase.auth());

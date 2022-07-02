@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './SignUp.css';
 import { Link } from "react-router-dom";
 import { FireContext } from "../../../Config/Firebase/Firebase";
 import {UserContext} from "../../../components/AuthProvider/AuthProvider";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [darkMode] = useState(false);
   const {auth,db} = useContext(FireContext);
   const {setphotourl,setAuthlink,setprov,adminuid} = useContext(UserContext)
@@ -25,6 +25,57 @@ const SignUp = () => {
       onChangeHandler(event)
     }
   }
+
+  useEffect(() => {
+    if(props.location.pathname=="/Activate"){
+      setPending(true);
+      setprov(false);
+      const query = new URLSearchParams(props.location.search);
+      let token = query.get('token')
+      let username = query.get('username')
+      let email = username+"@natsapp.in"
+      auth.signInWithCustomToken(token).then((userCredential) => {
+        const {user} = userCredential;
+        if(userCredential.additionalUserInfo.isNewUser){
+          setphotourl("https://firebasestorage.googleapis.com/v0/b/natsapp-402b2.appspot.com/o/photos%2Fimages%2Fprof.png?alt=media&token=6366d2c5-1efa-4839-8c8a-5a8e1cba94b8")
+          user.updateProfile({
+            email:email,
+            displayName: username,
+            photoURL: "https://firebasestorage.googleapis.com/v0/b/natsapp-402b2.appspot.com/o/photos%2Fimages%2Fprof.png?alt=media&token=6366d2c5-1efa-4839-8c8a-5a8e1cba94b8"
+          })
+          db.ref("username/" + username).set({
+            uid: user.uid
+          })
+          db.ref("users/"+adminuid+"/friends").child(user.uid).set({
+            type : "active"
+          })
+          db.ref('users/' + user.uid).set({
+            userprof:{
+                clink:"",
+                displayName: username,
+                username: username,
+                uid: user.uid,
+                email: email,
+                profile_picture : "https://firebasestorage.googleapis.com/v0/b/natsapp-402b2.appspot.com/o/photos%2Fimages%2Fprof.png?alt=media&token=6366d2c5-1efa-4839-8c8a-5a8e1cba94b8"
+            },                
+            createtime:user.metadata,
+            userrole:{
+                score:0,
+                usersta:"Member",
+                ranks:["Member","Tester"]
+            },
+          })
+          setAuthlink("newuser");
+        }else{
+          setAuthlink("newuser");
+        }
+      }).catch(error => {
+          setPending(false)
+          setError(error.message);
+          console.error("Error generating custom token", error);
+      });
+    }
+  }, [props])
 
   const checkusernamelocal = (userName) =>{
     setUsernameready(true);
@@ -203,15 +254,7 @@ const SignUp = () => {
               {error}
             </div>
           )}
-          <input
-            type="text"
-            className="input"
-            name="displayName"
-            value={displayName}
-            placeholder="Display Name  (Nala Sky)"
-            id="displayName"
-            onChange={event => onChangeHandler(event)}
-          />
+          
           {/* <label htmlFor="userEmail" className="block">
             Email:
           </label> */}
@@ -220,9 +263,18 @@ const SignUp = () => {
             className="input"
             name="userName"
             value={userName}
-            placeholder="username  (nalasky)"
+            placeholder="Username  (nalasky)"
             id="username"
             onChange={event => usernameHandler(event)}
+          />
+          <input
+            type="text"
+            className="input"
+            name="displayName"
+            value={displayName}
+            placeholder="Display Name  (Nala Sky)"
+            id="displayName"
+            onChange={event => onChangeHandler(event)}
           />
           <input
             type="password"
@@ -250,7 +302,7 @@ const SignUp = () => {
           >Sign up Anonymously
         </button>
 
-        <p className={darkMode ? "dark-mode-ter textacc" : "light-mode-ter textacc"} style={{paddingTop:0}}>
+        <p className={darkMode ? "dark-mode-ter textacc" : "light-mode-ter textacc"} style={{paddingTop:0,marginBottom:"15px"}}>
           <br/>Already have an account?<br/>{" "}
           <Link to="/SignIn" className="textsignin">
             Sign in here
