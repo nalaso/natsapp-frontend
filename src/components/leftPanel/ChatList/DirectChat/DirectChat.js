@@ -72,16 +72,17 @@ const DirectChat = () => {
 				))
 			}
 			{
-				isboton?(
+				isboton && (
 					botlist.map(bot=>(
 						<BotChatTag key={bot.id} props={bot}/>					
 					))
-				):(
-					friendslist.map(friend=>(
-						<DirectChatTag key={friend.uname} props={friend}/>					
-					))
 				)
-			}		
+			}	
+			{
+				friendslist.map(friend=>(
+					<DirectChatTag key={friend.uname} props={friend}/>					
+				))
+			}	
 		</>
     )
 }

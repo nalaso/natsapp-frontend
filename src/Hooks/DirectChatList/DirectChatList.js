@@ -11,7 +11,7 @@ const DirectChatList = props=> {
 	const [botlist, setBotlist] = useState([])
 	const [delfriendslist, setDelfriendslist] = useState([])
 	const [delcheck, setDelcheck] = useState("")
-	const [isboton, setIsboton] = useState(true)
+	const [isboton, setIsboton] = useState(false)
 
 	const changeboton = () =>{
 		console.log(isboton);
