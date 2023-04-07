@@ -2,7 +2,7 @@ import React from 'react';
 // import ThemeProvider from './Config/ThemeConfig/ThemeProvider';
 import ApiProvider from "./Config/Firebase/Firebase";
 import AppAuthentication from "./AppAuthentication";
-// import "./App.css"
+import "./App.css"
 
 function App() {
   return (
