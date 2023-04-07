@@ -14,7 +14,7 @@ const SideMenu = () => {
     const {currentUser,username,signout} = useContext(UserContext)
 
     const openurl = url => {
-        var win = window.open(url+".natsapp.now.sh", '_blank');
+        var win = window.open(url+".natsapp.web.app", '_blank');
         win.focus();
     }
 

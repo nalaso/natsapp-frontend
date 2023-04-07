@@ -95,7 +95,7 @@ const InviteLinkConfirmation = ({fruid,link,match}) => {
                         <li>Score: <span className="blue username" id="frlinkscore">{frienddet.score}</span></li>
                         <li>Current Role: <span className="blue username" id="frlinkrole">Beta Tester</span></li>
                         <li>Ranks: <span className="blue username" id="frlinkranks">Visitor</span></li>
-                        <li>Profile: <span className="blue" id="frlink">natsapp.now.sh/@{frienddet.username}</span></li>
+                        <li>Profile: <span className="blue" id="frlink">natsapp.web.app/@{frienddet.username}</span></li>
                     </ul>
                 </div>
             ):(

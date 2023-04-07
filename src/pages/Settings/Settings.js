@@ -69,7 +69,7 @@ const Settings = () => {
                         <li>Current Role: <span className="blue username" id="urole">Beta Tester</span></li>
                         <li>Ranks: <span className="blue username" id="uranks">Visitor</span></li>
                         <li>Uid: <span className="blue username" id="Uid">{currentUser.uid}</span></li>
-                        <li>Profile: <span className="blue" id="userlink">natsapp.now.sh/@{username}</span></li>
+                        <li>Profile: <span className="blue" id="userlink">natsapp.web.app/@{username}</span></li>
                         {github && <li>Github: <span className="blue" id="userlink">github.com/@{github}</span></li>}
                     </ul>
                 </div>

@@ -3,7 +3,6 @@
 	--scroll-body-col: whitesmoke;
 }
 
-
 .disable-select {
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
@@ -830,7 +829,6 @@ nav button > span {
 	height: 100%;
 	width: 100%;
 	bottom: 0;
-	
 }
 
 .rightPanelPre{

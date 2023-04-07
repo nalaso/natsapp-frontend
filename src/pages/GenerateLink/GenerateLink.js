@@ -34,7 +34,7 @@ const GenerateLink = () => {
 
     const copylink =() =>{
         var aux = document.createElement("input");
-        aux.setAttribute("value", "natsapp.now.sh/invitefriend/"+clink);
+        aux.setAttribute("value", "natsapp.web.app/invitefriend/"+clink);
         document.body.appendChild(aux);
         aux.select();
         document.execCommand("copy");
@@ -100,7 +100,7 @@ const GenerateLink = () => {
                             <h2>Current link</h2><br />
                             <div className="mid">
                                 <h4>Click below to copy link</h4>
-                                <div style={{cursor: "pointer",width: "90%",overflow: "hidden",backgroundColor: "honeydew",color: "blue"}} type="text" className="themeinput" id="frlinkdiv" onClick={copylink}>natsapp.now.sh/invitefriend/{clink}</div>
+                                <div style={{cursor: "pointer",width: "90%",overflow: "hidden",backgroundColor: "honeydew",color: "blue"}} type="text" className="themeinput" id="frlinkdiv" onClick={copylink}>natsapp.web.app/invitefriend/{clink}</div>
                                 <div className="information">
                                     <ul>
                                         <li>Valid till: <span className="blue phone" id="frlinkend">{validtill}</span></li>
